@@ -40,12 +40,13 @@ void *pi(void *threadid){
 int main(){
 
     pthread_t threads[NUM_THREADS];
+    int num = NUM_THREADS;
 
     int rc;
     long t;
-
+    printf("Numero de threads:  %d\n", num);
     for(t=0;t<NUM_THREADS;t++){
-        printf("In main: creating thread %ld\n", t);
+        // printf("In main: creating thread %ld\n", t);
         rc = pthread_create(&threads[t], NULL, pi, (void *)t);
         if (rc){
             printf("ERROR; return code from pthread_create() is %d\n", rc);
